@@ -3,13 +3,9 @@ provider "aws" {
 	region		= "us-east-2"
 }
 
-resource "aws_key_pair" "centos" {
-	key_name	= "centos"
-	public_key	= "${file("centos.pub")}"
-}
 resource "aws_instance" "example" {
-	ami				= "ami-d9e3c4bc"
+	ami				= "ami-0f2b4fc905b0bd1f1"
 	instance_type	= "t2.micro"
-	key_name		= "centos"
+	key_name		= "CentOS7"
 	user_data		= "${file("userdata.sh")}"
 }
